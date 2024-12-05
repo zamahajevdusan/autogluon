@@ -10,8 +10,8 @@ if target_column is None or target_column == "":
 
 data_root = os.getenv("DATA_ROOT", "/valohai/inputs")
 
-train_file = os.path.join(data_root, 'train.csv')
-test_file = os.path.join(data_root, "test.csv")
+train_file = valohai.inputs("train").path
+test_file = valohai.inputs("test").path
 
 if not os.path.exists(train_file):
     print("Need a training file to start the training.")
