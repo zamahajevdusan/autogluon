@@ -1,0 +1,10 @@
+- step:
+    name: autogluon
+    image: python:3.10
+    parameters:
+        - name: target_column
+          type: string
+          optional: false
+    command:
+    - pip install -r requirements.txt
+    - python autogluon.py
