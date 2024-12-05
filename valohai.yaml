@@ -5,6 +5,11 @@
         - name: target_column
           type: string
           optional: false
+    inputs:
+        - name: train
+          filename: train.csv
+        - name: test
+          filename: test.csv
     command:
     - pip install -r requirements.txt
     - python autogluon.py
