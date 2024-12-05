@@ -8,7 +8,6 @@ training_only = False
 if target_column is None or target_column == "":
     print("Need a target column specified!")
 
-data_root = os.getenv("DATA_ROOT", "/valohai/inputs")
 
 train_file = valohai.inputs("train").path
 test_file = valohai.inputs("test").path
