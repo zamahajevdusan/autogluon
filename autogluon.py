@@ -9,8 +9,8 @@ if target_column is None or target_column == "":
     print("Need a target column specified!")
 
 
-train_file = valohai.inputs("train").path
-test_file = valohai.inputs("test").path
+train_file = valohai.inputs("train").path()
+test_file = valohai.inputs("test").path()
 
 if not os.path.exists(train_file):
     print("Need a training file to start the training.")
