@@ -12,11 +12,11 @@ if target_column is None or target_column == "":
 train_file = valohai.inputs("train").path()
 test_file = valohai.inputs("test").path()
 
-if not os.path.exists(train_file):
+if train_file is None:
     print("Need a training file to start the training.")
     exit(1)
 
-if not os.path.exists(test_file):
+if test_file is None:
     print("Test file not found. Running training only")
     training_only = True
 
