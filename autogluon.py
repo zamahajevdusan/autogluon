@@ -1,4 +1,4 @@
-from autogluon.tabular import TabularDataset, TabularPredictor # type: ignore
+from autogluon.tabular import TabularDataset, TabularPredictor
 import os
 import valohai
 
@@ -22,7 +22,7 @@ if test_file is None:
 
 train_data = TabularDataset(train_file)
 
-predictor = TabularPredictor(label=target_column).fit(train_data=train_data)
+predictor = TabularPredictor(label=target_column, path=valohai.outputs().path(filename="model")).fit(train_data=train_data)
 
 if not training_only:
     test_data = TabularDataset(test_file)
