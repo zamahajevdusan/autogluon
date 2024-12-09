@@ -1,4 +1,4 @@
-from autogluon.tabular import TabularDataset, TabularPredictor
+from autogluon.tabular import TabularDataset, TabularPredictor # type: ignore
 import os
 import valohai
 
@@ -26,5 +26,5 @@ predictor = TabularPredictor(label=target_column, path=valohai.outputs().path(fi
 
 if not training_only:
     test_data = TabularDataset(test_file)
-    predictions = predictor.predict(test_data)
+    predictions = predictor.evaluate(test_data)
 

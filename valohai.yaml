@@ -1,16 +1,30 @@
 - step:
-    name: autogluon
+    name: train
     image: autogluon/autogluon:1.0.0-cpu-framework-ubuntu20.04-py3.10
     parameters:
         - name: target_column
           type: string
           optional: false
     inputs:
-        - name: train
-          filename: train.csv
-        - name: test
-          filename: test.csv
-          optional: true
+      - name: train
+        filename: train.csv
+      - name: test
+        filename: test.csv
+        optional: true
     command:
     - pip install -r requirements.txt
     - python autogluon.py
+
+- step:
+    name: predict
+    image: autogluon/autogluon:1.0.0-cpu-framework-ubuntu20.04-py3.10
+    inputs:
+      - name: model
+        filename: model
+        optional: false
+      - name: files
+        optional: false
+    command:
+    - pip install -r requirements.txt
+    - python predict.py
+      
