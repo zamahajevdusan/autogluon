@@ -26,9 +26,7 @@
         keep-directories: suffix
       - name: files
         optional: false
-        default: datum://0193971f-97a6-8b7e-87db-583ecbd45f56
     command:
     - pip install -r requirements.txt
-    - pip install debugpy
     - python predict.py
       
