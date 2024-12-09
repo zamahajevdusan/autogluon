@@ -4,10 +4,10 @@
     parameters:
         - name: target_column
           type: string
-          optional: false
     inputs:
       - name: train
         filename: train.csv
+        optional: false
       - name: test
         filename: test.csv
         optional: true
@@ -21,10 +21,8 @@
     inputs:
       - name: model
         optional: false
-        default: model://automl/2
       - name: files
         optional: false
-        default: datum://0193971f-97a6-8b7e-87db-583ecbd45f56
     command:
     - pip install -r requirements.txt
     - python predict.py

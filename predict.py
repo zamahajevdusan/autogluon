@@ -4,7 +4,7 @@ import pandas as pd
 from os import path
 from tqdm import tqdm
 
-predictor = TabularPredictor.load("/valohai/inputs/model/")
+predictor = TabularPredictor.load("/valohai/inputs/model/model")
 input_files = valohai.inputs("files").paths()
 
 print("AutoGluon infers problem type is: ", predictor.problem_type)
@@ -13,5 +13,5 @@ print("AutoGluon identified the following types of features:", predictor.feature
 print(f"Starting prediction on {input_files}")
 for file in tqdm(input_files):
     predictions = predictor.predict(file)
-    output_csv = path.basename(file) + ".csv"
+    output_csv = path.basename(file)
     predictions.to_csv(path.join("/valohai/outputs", output_csv))
