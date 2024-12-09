@@ -27,7 +27,9 @@ predictor2 = TabularPredictor.load("/valohai/outputs/model")
 predictor2.save()
 
 if not training_only:
+    import json
     test_data = TabularDataset(test_file)
     predictions = predictor2.evaluate(test_data)
-    predictions.to_csv("/valohai/outputs/evaluation.csv")
+    with open("/valohai/outputs/evaluation.json", "w") as f:
+        json.dump(predictions, f)
 
