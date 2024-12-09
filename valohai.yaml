@@ -20,7 +20,6 @@
     image: autogluon/autogluon:1.0.0-cpu-framework-ubuntu20.04-py3.10
     inputs:
       - name: model
-        filename: model
         optional: false
       - name: files
         optional: false
