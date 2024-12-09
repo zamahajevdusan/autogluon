@@ -23,6 +23,7 @@ if test_file is None:
 train_data = TabularDataset(train_file)
 
 predictor = TabularPredictor(label=target_column, path=valohai.outputs().path(filename="model")).fit(train_data=train_data)
+predictor.save()
 
 if not training_only:
     test_data = TabularDataset(test_file)
