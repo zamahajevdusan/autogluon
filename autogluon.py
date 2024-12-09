@@ -28,6 +28,6 @@ predictor2.save()
 
 if not training_only:
     test_data = TabularDataset(test_file)
-    predictions = predictor.evaluate(test_data)
-    predictions.save("/valohai/outputs/evaluation.csv")
+    predictions = predictor2.evaluate(test_data)
+    predictions.to_csv("/valohai/outputs/evaluation.csv")
 
